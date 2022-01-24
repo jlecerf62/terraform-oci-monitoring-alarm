@@ -1,8 +1,3 @@
-variable "region" {}
-variable "private_key_path" {}
-variable "fingerprint" {}
-variable "user_ocid" {}
-variable "tenancy_ocid" {}
 variable "compartment_id" {}
 
 # Required 
@@ -45,60 +40,71 @@ variable "alarm_severity" {
 #Optional
 
 variable "defined_tags" {
-  type = string
+  type    = map(string)
+  default = null
 }
 
 variable "freeform_tags" {
-  type = string
+  type    = map(string)
+  default = null
 }
 
 variable "alarm_body" {
   type        = string
   description = "(Updatable) The human-readable content of the notification delivered."
+  default     = null
 }
 
 variable "alarm_message_format" {
   type        = string
   description = "(Updatable) The format to use for notification messages sent from this alarm: RAW, PRETTY_JSON or ONS_OPTIMIZED"
+  default     = "ONS_OPTIMIZED"
 }
 
 variable "alarm_metric_compartment_id_in_subtree" {
   type        = bool
   description = "(Updatable) When true, the alarm evaluates metrics from all compartments and subcompartments."
+  default     = false
 }
 
 variable "alarm_pending_duration" {
   type        = string
   description = "(Updatable) The period of time that the condition defined in the alarm must persist before the alarm state changes from \"OK\" to \"FIRING\". The duration is specified as a string in ISO 8601 format"
-
+  default     = "PT1M"
 }
 
 variable "alarm_repeat_notification_duration" {
   type        = string
   description = "(Updatable) The frequency at which notifications are re-submitted, if the alarm keeps firing without interruption. Format defined by ISO 8601."
+  default     = null
 }
 
 variable "alarm_resolution" {
   type        = string
   description = "(Updatable) The time between calculated aggregation windows for the alarm."
+  default     = null
 }
 
 variable "alarm_resource_group" {
   type        = string
   description = " (Updatable) Resource group that you want to match. A null value returns only metric data that has no resource groups."
+  default     = "null"
 }
 
 variable "alarm_suppression_time_suppress_from" {
   type        = string
   description = "(Updatable) The start date and time for the suppression to take place, inclusive. Format defined by RFC3339."
+  default     = null
 }
 
 variable "alarm_suppression_time_suppress_until" {
   type        = string
   description = "(Updatable) The end date and time for the suppression to take place, inclusive. Format defined by RFC3339."
+  default     = null
 }
 
 variable "alarm_suppression_description" {
   type        = string
   description = "Human-readable reason for suppressing alarm notifications."
+  default     = null
 }

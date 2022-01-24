@@ -19,12 +19,12 @@ resource "oci_monitoring_alarm" "monitoring_alarm" {
   repeat_notification_duration     = var.alarm_repeat_notification_duration
   resolution                       = var.alarm_resolution
   resource_group                   = var.alarm_resource_group
-  suppression {
+/*   suppression {
     #Required
     time_suppress_from  = var.alarm_suppression_time_suppress_from
     time_suppress_until = var.alarm_suppression_time_suppress_until
 
     #Optional
     description = var.alarm_suppression_description
-  }
+  } */
 }
